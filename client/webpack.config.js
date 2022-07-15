@@ -27,8 +27,23 @@ module.exports = () => {
         swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
-        // Fill in specs here
-      })
+        fingerprints: false,
+        inject: true,
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'A text editing app!',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
+        start_url: '/',
+        publicPath: '/',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
     ],
 
     module: {
