@@ -21,8 +21,6 @@ export const putDb = async (content) => {
   console.log(res.value); 
 }
 
-// TODO: Add logic for a method that gets all the content from the database
-
 export const getDb = async () => { 
   const textDb = await openDB('jate', 1);
   const transact = textDb.transaction('jate', 'readwrite');
@@ -30,7 +28,7 @@ export const getDb = async () => {
   const req = store.getAll();
   const res = await req;
 console.log('res.value', res);
-return res;
+return res.value;
 }
 
 initdb();
